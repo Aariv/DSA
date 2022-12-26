@@ -23,6 +23,61 @@ public class SinglyLinkedList {
 		}
 	}
 
+	public void addFirst(int ele) {
+		ListNode newNode = new ListNode(ele);
+		if(head == null) {
+			head = head.next;
+		} else {
+			head.next = newNode;
+		}
+	}
+	
+	public void addLast(int ele) {
+		ListNode newNode = new ListNode(ele);
+		if(head == null) {
+			head = newNode;
+		} else {
+			tail.next = newNode;
+		}
+	}
+	
+	public int peekFirst() {
+		if(head == null)
+			throw new IllegalArgumentException();
+		
+		return head.val;
+	}
+	
+	public int peekLast() {
+		if(tail == null)
+			throw new IllegalArgumentException();
+		
+		return tail.val;
+	}
+	
+	public int deleteFirst() {
+		if(head == null)
+			throw new IllegalArgumentException();
+		
+		ListNode temp = head;
+		head = head.next;
+		return temp.val;
+	}
+	
+	public int deleteLast() {
+		if(head == null)
+			throw new IllegalArgumentException();
+		
+		ListNode temp = head;
+		ListNode prev = null;
+		while(temp != null) {
+			prev = temp;
+			temp = temp.next;
+		}
+		prev.next = temp.next;
+		return temp.val;
+	}
+	
 	/**
 	 * 
 	 * @param ele
@@ -90,6 +145,10 @@ public class SinglyLinkedList {
 		}
 		size--;
 		return data;
+	}
+	
+	public int size() {
+		return size;
 	}
 
 	private void checkIndex(int index) {

@@ -1,9 +1,16 @@
 package com.ariv.dsa.queue;
 
+/**
+ * FIFO - First In First Out
+ */
 public class ArrayQueue {
+	// Array Declaration 
 	private int[] queue;
+	// Front increments when deleting element
 	private int front;
+	// Rear increments when adding element
 	private int rear;
+	// To get the total number of elements
 	private int size;
 	private int capacity;
 	
